@@ -32,6 +32,10 @@
 // Ignore temp readings during development.
 //#define BOGUS_TEMPERATURE_GRACE_PERIOD 2000
 
+#if DISABLED(SDCARD_EEPROM_EMULATION)
+  #define FLASH_EEPROM_EMULATION
+#endif
+
 //
 // Steppers
 //
@@ -71,7 +75,7 @@
 #endif
 #if HOTENDS == 1
   #ifndef FAN1_PIN
-    #define FAN1_PIN                       P2_04
+    //#define FAN1_PIN                       P2_04
   #endif
 #else
   #ifndef HEATER_1_PIN
@@ -79,7 +83,7 @@
   #endif
 #endif
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_03
+  #define FAN_PIN                          P2_04
 #endif
 #ifndef HEATER_BED_PIN
   #define HEATER_BED_PIN                   P2_05

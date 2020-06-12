@@ -26,14 +26,6 @@
  */
 
 #define BOARD_INFO_NAME "Melzi (Malyan)"
-
-// Alter timing for graphical display
-#if HAS_GRAPHICAL_LCD
-  #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
-  #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
-#endif
-
 #include "pins_MELZI.h"
 
 #undef LCD_SDSS
@@ -50,3 +42,10 @@
 #define BTN_EN1                              30
 #define BTN_EN2                              29
 #define BTN_ENC                              28
+
+// Alter timing for graphical display
+#if HAS_GRAPHICAL_LCD
+  #define BOARD_ST7920_DELAY_1 DELAY_NS(125)
+  #define BOARD_ST7920_DELAY_2 DELAY_NS(125)
+  #define BOARD_ST7920_DELAY_3 DELAY_NS(125)
+#endif
