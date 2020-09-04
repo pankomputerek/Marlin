@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -175,7 +175,14 @@
 #define HAS_TMC_SW_SERIAL ANY_AXIS_HAS(SW_SERIAL)
 
 //
-// Stretching 'drivers.h' to include LPC/SAMD51 SD options
+// TMC26XX Stepper Drivers
+//
+#if HAS_DRIVER(TMC26X)
+  #define HAS_TMC26X 1
+#endif
+
+//
+// L64XX Stepper Drivers
 //
 #define _SDCARD_LCD          1
 #define _SDCARD_ONBOARD      2

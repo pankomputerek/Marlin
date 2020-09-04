@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 
@@ -31,7 +31,6 @@
 
 #if ENABLED(PARK_HEAD_ON_PAUSE)
   #include "../../feature/pause.h"
-  #include "../queue.h"
 #endif
 
 #if ENABLED(HOST_ACTION_COMMANDS)
@@ -102,7 +101,8 @@ void GcodeSuite::M25() {
     #endif
 
     print_job_timer.pause();
-    ui.reset_status();
+
+    TERN(DWIN_CREALITY_LCD,,ui.reset_status());
 
     #if ENABLED(HOST_ACTION_COMMANDS)
       #if ENABLED(HOST_PROMPT_SUPPORT)

@@ -16,7 +16,7 @@
  * GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  */
 #pragma once
@@ -34,7 +34,7 @@
 #define FLASH_EEPROM_EMULATION                    // Use Flash-based EEPROM emulation
 
 // Ignore temp readings during development.
-//#define BOGUS_TEMPERATURE_GRACE_PERIOD 2000
+//#define BOGUS_TEMPERATURE_GRACE_PERIOD    2000
 
 //
 // Limit Switches
@@ -145,7 +145,7 @@
   #define E0_SERIAL_RX_PIN                  PD7
 
   // Reduce baud rate to improve software serial reliability
-  #define TMC_BAUD_RATE 19200
+  #define TMC_BAUD_RATE                    19200
 #endif
 
 //
@@ -229,9 +229,15 @@
 
   // Alter timing for graphical display
   #if HAS_GRAPHICAL_LCD
-    #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
-    #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
-    #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
+    #ifndef BOARD_ST7920_DELAY_1
+      #define BOARD_ST7920_DELAY_1 DELAY_NS(96)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_2
+      #define BOARD_ST7920_DELAY_2 DELAY_NS(48)
+    #endif
+    #ifndef BOARD_ST7920_DELAY_3
+      #define BOARD_ST7920_DELAY_3 DELAY_NS(600)
+    #endif
   #endif
 
 #endif // HAS_SPI_LCD
